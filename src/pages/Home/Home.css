@@ -62,3 +62,43 @@
 .market__cap{
     text-align: right;
 }
+.table__layout:last-child{
+    border: none;
+}
+.table__layout div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.table__layout div img{
+    width: 35px;
+}
+.table__layout .green{
+    color: #00D515;
+    text-align: center;
+}
+.table__layout .red{
+    color: #ff4646;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .table__layout{
+        grid-template-columns: 0.5fr 3fr 1fr 1fr;
+    }
+    .market__cap{
+        display: none;
+    }
+}
+
+@media (max-width: 500px){
+    .table__layout div img{
+        width: 25px;
+    }
+    .table__layout{
+        font-size: 13px;
+    }
+    .hero form input{
+        width: 100px;
+    }
+}
