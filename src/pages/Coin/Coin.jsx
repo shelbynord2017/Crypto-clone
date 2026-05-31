@@ -39,16 +39,20 @@ fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency
         fetchHistoricalData();
     },[CoinContext])
 
+    if(!coinData || !historicalData){
+        return <div>Loading.</div>;
+    }
 
-    if(coinData, historicalData){
+
+    if(coinData && historicalData){
         return (
     <div className='coin'>
         <div className="coin__name">
-            <img src={coinData.image.large} alt="" />
-            <p><b>{coinData.name} ({coinData.symbol.toUpperCase})</b></p>
+            <img src={coinData?.image?.large} alt={coinData?.name} />
+            <p><b>{coinData.name} ({coinData.symbol.toUpperCase()})</b></p>
         </div>
         <div className="coin__chart">
-            <LineChart historicalData={historicalData}/>
+            {historicalData?.prices && <LineChart historicalData={historicalData}/>}
         </div>
     </div>
   )
